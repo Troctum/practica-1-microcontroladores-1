@@ -1,0 +1,15 @@
+• 1. Explique detalladamente el proceso de escaneo de un teclado matricial 4x4. Describa cada paso que debe realizar el microcontrolador.
+
+R//:El microcontrolador detecta las teclas presionadas en un teclado matricial 4x4 activando una fila a la vez y revisando las columnas correspondientes. Si al activar una fila una columna marca un estado bajo, significa que la tecla en esa posición fue oprimida. Luego se hace una breve pausa para evitar lecturas erróneas por rebotes eléctricos, se confirma la pulsación y se guarda el valor. Finalmente, la fila se desactiva y se pasa a la siguiente, repitiendo este ciclo continuamente para reconocer cualquier nueva tecla que se presione.
+
+
+• 2. Cuál es la función de la configuración INPUT_PULLUP en los pines del teclado? Por qué es recomendable su uso en las columnas?
+
+R//:La configuración INPUT_PULLUP hace que el microcontrolador active una pequeña resistencia interna que mantiene el pin en un estado alto cuando no hay nada conectado. En un teclado matricial, esto es útil porque evita que las columnas queden flotando y generen lecturas erróneas. Al usar INPUT_PULLUP, cada columna se mantiene en alto hasta que se presiona una tecla, momento en el que el pin pasa a un estado bajo, lo que permite al microcontrolador detectar fácilmente cuál tecla fue oprimida sin necesidad de usar resistencias externas.
+
+
+• 3. Mencione al menos tres mejoras de seguridad que podrías implementar en el sistema de cerradura digital para hacerlo más robusto frente a intentos de acceso no autorizado.
+
+R//:Bloqueo tras varios intentos fallidos: el sistema puede bloquearse por un tiempo después de varios intentos incorrectos, por ejemplo, 30 segundos o un minuto. Así se evita que alguien pruebe claves al azar hasta acertar.
+Autenticación adicional: además del código numérico, se puede añadir otro método de verificación, como una tarjeta RFID, una huella digital o una clave maestra que solo el administrador conozca, haciendo el acceso más seguro.
+Protección de la clave almacenada: en lugar de guardar la clave directamente en la memoria del dispositivo, puede guardarse cifrada o con un algoritmo de seguridad, evitando que alguien pueda leerla si accede al sistema.
